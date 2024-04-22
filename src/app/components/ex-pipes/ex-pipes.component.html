@@ -1,0 +1,58 @@
+<h4>Exemplo de pipes</h4>
+
+<p><b>Título:</b> {{livro.titulo | uppercase }}</p>
+<p><b>Estrelas:</b> {{livro.rating | number:'1.1-1' }}</p>
+<p><b>Páginas:</b> {{livro.numeroPaginas }}</p>
+<p><b>Preço:</b> {{livro.preco | currency:'BRL' }}</p>
+<p><b>Lançamento:</b> {{livro.dataLancamento | date: 'dd/MM/yy' }}</p>
+<p><b>Url:</b> {{livro.url}}</p>
+
+<br>
+<p>Livros: {{ livro | json }}</p>
+
+<br>
+<p>{{ valorAsync | async }}</p>
+<br>
+<!-- <p>{{ valorAssincrono | async }}</p> -->
+
+<div class="form-group">
+  <label for="filtro" class="form-label fw-bold">Filtro:</label>
+  <input type="text" class="form-control" [(ngModel)]="filtro" name="filtro">
+</div>
+<br>
+<div class="form-group row">
+  <div class="col">
+    <label for="livro" class="form-label fw-bold">Novo Livro: </label>
+    <input type="text" class="col-10 form-control md-10"  #novoValor>
+  </div>
+  <div class="col button">
+    <button class="btn btn-primary col-2 md-2" (click)="addCursos(novoValor.value)">Adicione</button>
+  </div>
+</div>
+
+
+<br>
+<h5>Pipe Puro</h5>
+
+<ul>
+  <li *ngFor="let liv of livros | filtroArray:filtro">
+    {{ liv }}
+  </li>
+</ul>
+<br>
+<h5>Pipe Impuro</h5>
+
+<ul>
+  <li *ngFor="let liv of livros | filtroImpuro:filtro">
+    {{ liv }}
+  </li>
+</ul>
+<br>
+<h5>Filtros Correto</h5>
+
+<ul>
+  <li *ngFor="let liv of obterCursos()">
+    {{ liv }}
+  </li>
+</ul>
+

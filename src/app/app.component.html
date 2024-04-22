@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-primary bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Aprendendo NG</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <li>
+          <a routerLinkActive="active" routerLink="/templateForm" class="nav-link"
+          href="#">TemplateDriven</a>
+        </li>
+        <li >
+          <a routerLinkActive="active" routerLink="/dataForm" class="nav-link "
+         href="#">DataDriven</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/diretivas" class="nav-link " 
+              href="#">Diretivas</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/servicos" class="nav-link " 
+              href="#">Serviços</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/routing" class="nav-link " 
+              href="#">Rotas</a>
+        </li>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

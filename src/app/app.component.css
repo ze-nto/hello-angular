@@ -1,0 +1,38 @@
+.container{
+  margin-top: 20px;
+}
+
+.navbar-brand{
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-nav li a{
+  color: #fff;
+}
+
+.navbar-nav li:hover{
+  background-color: rgb(108, 175, 238);
+  font-weight: bold;
+  /* transition: 0.1s; */
+  
+}
+
+.navbar-nav li:hover a{
+  color: blue;
+  transition: 0.1s;
+}
+
+.navbar-nav > li{
+  width: 150px;
+  text-align: center;
+}
+
+.navbar-nav > li:has( ~ li){
+  border-right: 1px solid rgb(180, 180, 180);
+}
+
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+}

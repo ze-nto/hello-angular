@@ -1,0 +1,14 @@
+<section class="detalhes-container">
+  <ul *ngIf="this.item else naoEncontrado">
+    <li><b>Id:</b> {{itemId}}</li>
+    <li><b>Nome:</b> {{item?.nome}}</li>
+    <li><b>Categoria:</b> {{item?.categoria}}</li>
+    <li><b>Quantidade:</b> {{item?.quantidade}} <span *ngIf="!exibir">Kg</span></li>
+    <li *ngIf="exibir"><b>Marca:</b> {{item?.marca}}</li>
+    <li><b>Preço:</b> {{item?.preco | currency:'BRL'}}</li>
+    <li *ngIf="item?.validade"><b>Validade:</b> {{item?.validade}}</li>
+  </ul>
+  <ng-template #naoEncontrado>
+    <app-item-nao-encontrado></app-item-nao-encontrado>
+  </ng-template>
+</section>

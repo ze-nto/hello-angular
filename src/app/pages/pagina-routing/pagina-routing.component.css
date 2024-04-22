@@ -1,0 +1,21 @@
+.container{
+  display: flex;
+}
+.lista{
+  max-height: 80vh;
+  overflow-y: scroll;
+  max-width: 50%;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+
+li:hover{
+  background-color: #e7e5e5;
+}

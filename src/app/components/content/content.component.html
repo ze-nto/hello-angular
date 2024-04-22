@@ -1,0 +1,10 @@
+<p class="d-inline-flex gap-1">
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" (click)="mostrarConteudo()">
+    <ng-content select=".btn-label"></ng-content>
+  </button>
+</p>
+<div class="collapse" id="collapseExample" [class.show]="mostrar">
+  <div class="card card-body" >
+    <ng-content select=".panel-body"> </ng-content>
+  </div>
+</div>

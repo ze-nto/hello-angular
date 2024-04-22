@@ -1,0 +1,56 @@
+<section class="'property-binding">
+
+  <article>
+    <h3>Two way data binding</h3>
+  </article>
+
+
+
+  <article>
+    <h3>Iterpolação</h3>
+    <p> String renderizada por interpolação: <br/> <b>{{valor}}</b></p>
+  </article>
+  <br><br>
+  <article>
+    <h3>Event binding</h3>
+
+    <button
+      (click)="botaoClicado()" 
+      class="btn btn-danger"> Me clique </button>
+    <br><br>
+    <input id="box"
+      type="text" 
+      (keyup.enter)="onKeyUp($event)" />
+    <br>
+    <div>{{ valorSalvo }}</div>
+  </article>
+  <br><br>
+  <article>
+    <h3>Class e Style Binding</h3>
+
+    <div>
+      Selecione uma opçao:
+      <!--variável local de template -->
+      <select #classe (change) ="0" id="combo">
+        <option value="alert-primary">Primary alert—check </option>
+        <option value="alert-secondary">Secondary alert—check </option>
+        <option value="alert-success">Success alert—check </option>
+        <option value="alert-danger">Danger alert—check </option>
+        <option value="alert-warning">Warning alert—check </option>
+        <option value="alert-info">Info alert—check </option>
+        <option value="alert-light">Light alert—check </option>
+        <option value="alert-dark">Dark alert—check </option>
+      </select>
+      <br><br>
+
+      <div class="alert" role="alert" [class.alert-primary]="classe.value == 'alert-primary'">A simple primary alert—check it out! </div>
+      <div class="alert" role="alert" [class.alert-secondary]="classe.value == 'alert-secondary'">Secondary alert—check!</div>
+      <div class="alert" role="alert" [class.alert-success]="classe.value == 'alert-success'">Success alert—check!</div>
+      <div class="alert" role="alert" [class.alert-danger]="classe.value == 'alert-danger'">Danger alert—check!</div>
+      <div class="alert" role="alert" [class.alert-warning]="classe.value == 'alert-warning'">Warning alert—check!</div>
+      <div class="alert" role="alert" [class.alert-info]="classe.value == 'alert-info'">Info alert—check!</div>
+      <div class="alert" role="alert" [class.alert-light]="classe.value == 'alert-light'">Light alert—check!</div>
+      <div class="alert" role="alert" [class.alert-dark]="classe.value == 'alert-dark'">Dark alert—check!</div>
+    </div>
+  </article>
+</section>

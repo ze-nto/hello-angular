@@ -1,0 +1,9 @@
+<h5>Diretiva *ngIF</h5>
+<br>
+<div>
+  <button class="btn btn-primary" (click)="onClick()" [innerText]="acao"></button>
+  <h6>Lista de cursos</h6>
+  <div *ngIf="mostrarCursos; else elseBlock">Mostrar Lista</div>
+  <ng-template #elseBlock>Não há curso para disponíveis.</ng-template>
+
+</div>

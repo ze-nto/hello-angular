@@ -1,0 +1,13 @@
+<h5>Diretiva ngStyle</h5>
+<div class="btn-sp">
+  <button class="btn"
+  [ngStyle]="{
+    'backgroundColor': ativo ? 'var(--bs-primary)' : 'lightgray',
+    'color': ativo ? 'white': 'gray',
+    'fontWeight': ativo? 'bold': 'normal',
+  }"
+  (click)="mudarAtivo()"
+  >
+    Mudar atributo ativo
+  </button>
+</div>

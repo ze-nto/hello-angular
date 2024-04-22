@@ -1,0 +1,15 @@
+<section class="container">
+
+  <div class="lista">
+    <ul>
+      <li *ngFor="let item of listaCompras"> 
+        <a [routerLink]="['/routing', item.id]" #iditem>
+          {{ (item.id < 10)? '0' + item.id: item.id}}  | {{item?.nome}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="detalhes">
+    <app-item-lista-detalhe></app-item-lista-detalhe>
+  </div>
+</section>

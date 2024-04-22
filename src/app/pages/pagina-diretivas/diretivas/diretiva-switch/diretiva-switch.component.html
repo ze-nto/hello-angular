@@ -1,0 +1,13 @@
+<h5>Diretiva *ngSwitch</h5>
+
+<input [(ngModel)]="selected"
+       [typeahead]="states"
+       [isAnimated]="true"
+       class="form-control">
+
+<div [ngSwitch]="selected" *ngIf="selected" class="resposta"><b>Você escolheu: &nbsp; </b>
+  <div *ngSwitchCase="'Banana'"> Bananas</div>
+  <div *ngSwitchCase="'Maçã'"> Maçãs</div>
+  <div *ngSwitchCase="'Uva'"> Uva</div>
+  <div *ngSwitchDefault> Escolha inválida. Por favor,  escolha uma fruta disponível</div>
+</div>

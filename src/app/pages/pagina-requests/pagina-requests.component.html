@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-header head">
+    <h5 class="card-title">Cursos</h5>
+    <a href="#" class="btn btn-primary float-end">Novo</a>
+  </div>
+  <div class="card-body">
+    <table class="table" *ngIf="cursos$ | async as cursos; else loading">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Curso</th>
+          <th scope="col"></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursos">
+          <th scope="row">{{curso.id}}</th>
+          <td>{{curso.nome}}</td>
+          <td>
+            <span class="float-end espaco">
+              <button class="btn btn-outline-warning mb-1 btn-sm ">Atualizar</button>
+            </span>
+            <span class="float-end">
+              <button class="btn btn-outline-danger mb-1 btn-sm">Remover</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    <ng-template #loading>
+      <div *ngIf="error$ | async; else loadingNoError" class="erro-container">
+        <span>Erro ao carregar cursos.</span>
+        <a class="btn btn-outline-secondary float-end" (click)="onRefresh()">Clique aqui para tentar novamente</a>
+      </div>
+      <ng-template #loadingNoError>
+        <div class="spinner-container">  
+          <div class="spinner-border m-5" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+  <div>
+
+    <a href="#" class="btn btn-outline-secondary float-end" [routerLink]="['/requests/unsub']" routerLinkActive="router-link-active" >Unsubscribe</a>
+  </div> 
+</div>
+<div>
+  <button type="button" class="btn btn-primary" (click)="openModal()">Create modal with component</button>
+</div>

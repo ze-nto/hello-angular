@@ -1,6 +1,6 @@
 <section class="form-container">
   
-  <h2>Cadastro de cliente</h2>
+  <h2 class="teste">Cadastro de cliente</h2>
   
   <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
     <div class="mb-3 form-group" >
@@ -15,88 +15,115 @@
         minlength="3"
         >
 
-      <div *ngIf="nome.invalid && (nome.touched || nome.dirty )" class = "invalid-feedback"> 
+      <div *ngIf="nome.invalid && (nome.touched || nome.dirty )" class= "invalid-feedback"> 
         <div *ngIf="nome.errors?.['required']">Campo é obrigatorio</div>
         <div *ngIf="nome.errors?.['touched']">Campo é Obrigatorio</div>
         <div *ngIf="nome.errors?.['minlength']">O nome deve ter pelo menos 3 caracteres</div>
-
       </div>
     </div>
     <div class="mb-3 form-group">
       <label for="email" class="form-label fw-bold" [class.form-check-label]="!email.valid && email.touched">Email<sup title="Obrigatório">*</sup></label>
-      <input type="email" class="form-control" id="email" [class.is-invalid]="!email.valid && email.touched" placeholder="nome@email.com" [(ngModel)]="usuario.email" name="email" required #email="ngModel">
-      <div *ngIf="!email.valid && email.touched" [class.invalid-feedback]="!email.valid && email.touched"> O email é obrigatório</div>
+      <input type="email" 
+        name="email" id="email"
+        class="form-control"  
+        [class.is-invalid]="!email.valid && email.touched" 
+        placeholder="nome@email.com" 
+        [(ngModel)]="usuario.email" 
+        required 
+        #email="ngModel"
+      />
+      <div *ngIf="!email.valid && email.touched" 
+        [class.invalid-feedback]="!email.valid && email.touched"> 
+        O email é obrigatório
+      </div>
     </div>
     
-    <div class="row">
-      <div class="col-sm-4 mb-3 form-group" >
-        <label for="CEP" class="form-label fw-bold">CEP<sup>*</sup></label>
-        <input 
-          type="text" 
-          class="form-control" 
-          id="cep" 
-          placeholder="ex: 41810-890" 
-          name="CEP"
-          required
-          ngModel
-          #cep="ngModel"
-          [class.is-invalid]="!cep.valid && cep.touched"
-          >
-          <div *ngIf="!cep.valid && cep.touched" [class.invalid-feedback]="!cep.valid && cep.touched"> O CEP é obrigatório</div>
+    <div ngModelGroup="endereco">
+      <div class="row">
+        <div class="col-sm-3 mb-3 form-group" >
+          <label for="CEP" class="form-label fw-bold">CEP<sup>*</sup></label>
+          <input 
+            type="text" 
+            class="form-control" 
+            name="CEP" id="cep" 
+            placeholder="ex: 41810-890" 
+            required
+            ngModel
+            #cep="ngModel"
+            (blur)="consultaCEP($any($event.target).value, formulario)"
+            [class.is-invalid]="!cep.valid && cep.touched"
+          />
+          <div *ngIf="!cep.valid && cep.touched" 
+              [class.invalid-feedback]="!cep.valid && cep.touched"> 
+              O CEP é obrigatório
+          </div>
+        </div>
+        <div class="col-sm-3 mb-3 form-group" >
+          <label for="cidade" class="form-label fw-bold">Cidade</label>
+          <input 
+            type="text" class="form-control" 
+            placeholder="ex: Salvador" 
+            name="cidade"
+            ngModel
+            #cidade="ngModel"
+          />
+        </div>
+        <div class="col-sm-3 mb-3 form-group" >
+          <label for="bairro" class="form-label fw-bold">Bairro</label>
+          <input 
+            type="text" class="form-control" 
+            placeholder="ex: Lapinha" 
+            name="bairro"
+            ngModel
+            #bairro="ngModel"
+          />
+        </div>      
+        <div class="col-sm-3 mb-3 form-group" >
+          <label for="estado" class="form-label fw-bold">Estado</label>
+          <input 
+            type="text" class="form-control" 
+            placeholder="ex: BA" 
+            name="estado"
+            ngModel
+            #estado="ngModel"
+          />
+        </div>      
       </div>
-      <div class="col-sm-4 mb-3 form-group" >
-        <label for="cidade" class="form-label fw-bold">Cidade</label>
-        <input 
-        type="text" class="form-control" 
-        placeholder="ex: Salvador" 
-        name="cidade"
-        ngModel
-        #cidade="ngModel">
-      </div>
-      <div class="col-sm-4 mb-3 form-group" >
-        <label for="bairro" class="form-label fw-bold">Bairro</label>
-        <input 
-          type="text" class="form-control" 
-          placeholder="ex: Lapinha" 
-          name="bairro"
-          ngModel
-          #bairro="ngModel">
-      </div>      
-    </div>
 
-    <div class="row">
-      <div class="col-sm-5 mb-3 form-group" >
-        <label for="rua" class="form-label fw-bold">Rua</label>
-        <input 
-        type="text" class="form-control" 
-        placeholder="ex: Rua do Sussego" 
-        name="rua"
-        ngModel
-        #rua="ngModel">
-      </div>
-      
-      <div class="col-sm-2 mb-2 form-group" >
-        <label for="numero" class="form-label fw-bold">Número</label>
-        <input 
-          type="text" class="form-control" 
-          placeholder="ex: 124" 
-          name="numero"
-          ngModel
-          #numero="ngModel">
-      </div>
-      <div class="col-sm-5 mb-3 form-group" >
-        <label for="complemento" class="form-label fw-bold">Complemento</label>
-        <input 
-          type="text" class="form-control" 
-          placeholder="ex: Ap 101" 
-          name="complemento"
-          ngModel
-          #complemento="ngModel">
+      <div class="row">
+        <div class="col-sm-5 mb-3 form-group" >
+          <label for="rua" class="form-label fw-bold">Rua</label>
+          <input 
+            type="text" class="form-control" 
+            placeholder="ex: Rua do Sussego" 
+            name="rua"
+            ngModel
+            #rua="ngModel"
+          />
+        </div>
+        
+        <div class="col-sm-2 mb-2 form-group" >
+          <label for="numero" class="form-label fw-bold">Número</label>
+          <input 
+            type="text" class="form-control" 
+            placeholder="ex: 124" 
+            name="numero"
+            ngModel
+            #numero="ngModel">
+        </div>
+        <div class="col-sm-5 mb-3 form-group" >
+          <label for="complemento" class="form-label fw-bold">Complemento</label>
+          <input 
+            type="text" class="form-control" 
+            placeholder="ex: Ap 101" 
+            name="complemento"
+            ngModel
+            #complemento="ngModel">
+        </div>
       </div>
     </div>
-    
     <div class="row d-flex justify-content-end">
-      <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Submit</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Enviar</button>
     </div>
 
     <app-form-debug [form]="formulario"></app-form-debug>

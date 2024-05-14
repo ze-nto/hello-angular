@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ContadorComponent } from '../../components/contador/contador.component';
 import { ContentComponent } from '../../components/content/content.component';
@@ -39,7 +38,7 @@ import { PaginaDiretivasComponent } from './pagina-diretivas.component';
     CommonModule,
     FormsModule,
     DiretivasRoutingModule, 
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     TypeaheadModule.forRoot(),
    
   ],

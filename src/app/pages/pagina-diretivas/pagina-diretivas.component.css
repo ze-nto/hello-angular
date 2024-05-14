@@ -15,16 +15,33 @@
   width: 80%;
 }
 
+.nav-tabs{
+  border-bottom: 1px solid #cacaca;
+}
+
 .nav-item{
   overflow: hidden;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  border: 1px solid #cacaca;
+  margin: 0 1px;
+  min-width: 100px;
+  text-align: center;
+  position: relative;
 }
+
 .nav-item:hover{
   background-color: #e7e5e5;
 }
 
 .nav-item .active{
   background-color: var(--bs-primary);
+  border: none;
+  position: relative;
   color: #fff;
+  border-bottom: none;
+}
+
+.content-container{
+  padding: 20px;
 }

@@ -24,7 +24,7 @@
 }
 
 .navbar-nav > li{
-  width: 150px;
+  width: 100px;
   text-align: center;
 }
 
@@ -35,4 +35,10 @@
 .active {
   font-weight: bold;
   text-decoration: underline;
+}
+
+.barra{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

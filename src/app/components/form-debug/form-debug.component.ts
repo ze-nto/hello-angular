@@ -8,5 +8,7 @@ import { Component, Input } from '@angular/core';
 export class FormDebugComponent {
 
   @Input() form: any;
+  @Input() submitted: boolean = false;
 
+  
 }

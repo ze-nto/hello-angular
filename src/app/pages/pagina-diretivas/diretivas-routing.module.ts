@@ -8,11 +8,10 @@ import { DiretivaStyleComponent } from './diretivas/diretiva-style/diretiva-styl
 import { DiretivaSwitchComponent } from './diretivas/diretiva-switch/diretiva-switch.component';
 import { DiretivasCustomizadasComponent } from './diretivas/diretivas-customizadas/diretivas-customizadas.component';
 import { PaginaDiretivasComponent } from './pagina-diretivas.component';
-// import { PaginaDiretivasComponent } from './pages/pagina-diretivas/pagina-diretivas.component';
 
 const diretivasRoutes: Routes = [
-  { path: 'diretivas', component: PaginaDiretivasComponent, children:[
-    { path: '', pathMatch: 'full', redirectTo: 'class' },
+    { path: '', pathMatch: 'full', redirectTo:'class'},
+    { path: '', component: PaginaDiretivasComponent, children:[
     { path: 'if', component: DiretivaIfComponent },
     { path: 'class', component: DiretivaClassComponent },
     { path: 'content', component: DiretivaContentComponent },

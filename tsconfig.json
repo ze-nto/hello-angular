@@ -7,7 +7,7 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -27,6 +27,7 @@
       "tslib": [ "./node_modules/tslib/tslib.d.ts" ]
     }
   },
+  "files": ["node_modules/tslib/tslib.d.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

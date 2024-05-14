@@ -4,15 +4,23 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div *ngIf="mostrarMenu()" class="collapse navbar-collapse barra" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+        <!-- <li>
+          <a routerLinkActive="active" routerLink="/login" class="nav-link"
+          href="#">Login</a>
+        </li> -->
         <li>
           <a routerLinkActive="active" routerLink="/templateForm" class="nav-link"
-          href="#">TemplateDriven</a>
+          href="#">Template</a>
         </li>
         <li >
           <a routerLinkActive="active" routerLink="/dataForm" class="nav-link "
-         href="#">DataDriven</a>
+         href="#">DataForm</a>
+        </li>
+        <li >
+          <a routerLinkActive="active" routerLink="/pipes" class="nav-link "
+         href="#">Pipes</a>
         </li>
         <li>
           <a routerLinkActive="active" routerLink="/diretivas" class="nav-link " 
@@ -26,7 +34,13 @@
           <a routerLinkActive="active" routerLink="/routing" class="nav-link " 
               href="#">Rotas</a>
         </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/requests" class="nav-link " 
+              href="#">Requests</a>
+        </li>
       </div>
+      <a class="btn btn-outline-danger" 
+          (click)="logout()">Sair</a>
     </div>
   </div>
 </nav>

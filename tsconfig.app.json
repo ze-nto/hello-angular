@@ -13,6 +13,7 @@
     "server.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
-  ]
+    "src/**/*.d.ts",
+      "./node_modules/tslib/tslib.d.ts"
+    ]
 }

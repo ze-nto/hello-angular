@@ -1,7 +1,36 @@
 {
   "cursos": [
-    { "id": "1", "nome": "Angular" },
-    { "id": "2", "nome": "React" },
-    { "id": "3", "nome": "Vue" }
+    {
+      "id": "4",
+      "nome": "Angular"
+    },
+    {
+      "id": "5",
+      "nome": "Next.js"
+    },
+    {
+      "id": "b1bf",
+      "nome": "Java"
+    },
+    {
+      "id": "61ff",
+      "nome": "Javascript"
+    },
+    {
+      "id": "76cf",
+      "nome": "Ruby"
+    },
+    {
+      "id": "0dbf",
+      "nome": "Design Pattern"
+    },
+    {
+      "id": "4a8e",
+      "nome": "Unit Test"
+    },
+    {
+      "id": "9f96",
+      "nome": "Next.js"
+    }
   ]
 }

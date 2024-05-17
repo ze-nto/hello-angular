@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { EMPTY, Observable, Subject, catchError } from 'rxjs';
 import { ModalAlertService } from './../../shared/modal-alert.service';
 import { Curso } from './curso';
-import { CursosService } from './cursos.service';
+import { Cursos2Service } from './services/cursos2.service';
 
 @Component({
   selector: 'app-pagina-requests',
@@ -11,14 +13,21 @@ import { CursosService } from './cursos.service';
 })
 export class PaginaRequestsComponent implements OnInit {
 
-  // cursos: Curso[] = [];
- 
+  @ViewChild('deleteModal') deleteModal!: TemplateRef<any>; 
+
   cursos$: Observable<Curso[]> = new Observable();
   error$: Subject<boolean> = new Subject();
+  valor: boolean = false;
+  deleteModalRef!: BsModalRef;
+  cursoSelecionado: Curso = { id: '', nome:'' } as Curso;
 
   constructor(
-    private cursosService: CursosService,
-    private modalAlertService: ModalAlertService  ){}
+    private cursosService: Cursos2Service,
+    private modalAlertService: ModalAlertService,
+    private bsModalService: BsModalService,
+    private router: Router,
+    private route: ActivatedRoute
+  ){}
 
   ngOnInit(){
     this.onRefresh();
@@ -35,7 +44,36 @@ export class PaginaRequestsComponent implements OnInit {
   }
 
   openModal() {
-    this.modalAlertService.showAlertDanger('Erro ao concetar com o servidor')
+    this.modalAlertService.showAlertDanger('Erro ao concetar com o servidor');
+  }
+
+  onEdit(id: string | null){
+    this.router.navigate(['editar', id], {
+      relativeTo: this.route
+    })
+  }
+
+  onDelete(curso: Curso){
+    this.cursoSelecionado = curso;
+    this.deleteModalRef = this.bsModalService.show(this.deleteModal, { class: 'modal-sm'});
+  }
+
+  onDecline(){
+    this.bsModalService.hide()
+  }
+
+  onConfirm(){
+    this.cursosService.remove(this.cursoSelecionado).subscribe({
+      next: () => {
+        this.onRefresh()
+        this.bsModalService.hide()
+      },
+      error: (error) => {
+        this.modalAlertService.showAlertDanger('Erro ao tentar deletar o curso')
+        this.bsModalService.hide()
+      }
+    })
+    
   }
 
 

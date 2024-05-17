@@ -14,6 +14,6 @@ import { AlertasComponent } from './alertas/alertas.component';
   ],
   exports: [
     AlertasComponent
-  ]
+  ],
 })
 export class SharedModule { }

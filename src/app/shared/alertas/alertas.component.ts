@@ -10,6 +10,7 @@ export class AlertasComponent {
 
   @Input() message: string = 'Deu ruim!'
   @Input() type: string = 'info'
+   
 
   constructor(public bsModalRef: BsModalRef) {}
 

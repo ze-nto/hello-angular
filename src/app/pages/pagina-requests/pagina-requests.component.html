@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header head">
     <h5 class="card-title">Cursos</h5>
-    <a href="#" class="btn btn-primary float-end">Novo</a>
+    <a href="#" class="btn btn-primary float-end" [routerLink]="['novo']" routerLinkActive="router-link-active" >Novo</a>
   </div>
   <div class="card-body">
     <table class="table" *ngIf="cursos$ | async as cursos; else loading">
@@ -17,27 +17,22 @@
           <td>{{curso.nome}}</td>
           <td>
             <span class="float-end espaco">
-              <button class="btn btn-outline-warning mb-1 btn-sm ">Atualizar</button>
+              <button class="btn btn-outline-warning mb-1 btn-sm " (click)="onEdit(curso.id)">Atualizar</button>
             </span>
             <span class="float-end">
-              <button class="btn btn-outline-danger mb-1 btn-sm">Remover</button>
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(curso)">Remover</button>
             </span>
           </td>
         </tr>
       </tbody>
       </table>
     <ng-template #loading>
-      <div *ngIf="error$ | async; else loadingNoError" class="erro-container">
-        <span>Erro ao carregar cursos.</span>
-        <a class="btn btn-outline-secondary float-end" (click)="onRefresh()">Clique aqui para tentar novamente</a>
-      </div>
-      <ng-template #loadingNoError>
-        <div class="spinner-container">  
-          <div class="spinner-border m-5" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
+      <div class="spinner-container">  
+        <div class="spinner-border m-5" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
-      </ng-template>
+      </div>
+
     </ng-template>
   </div>
   <div>
@@ -48,3 +43,12 @@
 <div>
   <button type="button" class="btn btn-primary" (click)="openModal()">Create modal with component</button>
 </div>
+
+
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que quer deletar?</p>
+    <button type="button" class="btn btn-default" (click)="onConfirm()">Sim</button>
+    <button type="button" class="btn btn-primary" (click)="onDecline()" >Não</button>
+  </div>
+</ng-template>

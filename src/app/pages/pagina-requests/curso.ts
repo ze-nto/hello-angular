@@ -1,4 +1,4 @@
 export interface Curso {
-  id: string
-  nome: string
+  id: string | null
+  nome: string | null
 }

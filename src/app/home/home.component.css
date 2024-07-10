@@ -1,0 +1,12 @@
+canvas{
+  margin: 40px;
+}
+
+mat-card{
+  padding: 40px;
+}
+
+button{
+  width: 100px;
+  background-color: #4b0082;
+}

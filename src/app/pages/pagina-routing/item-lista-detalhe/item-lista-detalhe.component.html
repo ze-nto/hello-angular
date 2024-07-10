@@ -1,5 +1,5 @@
 <section class="detalhes-container">
-  <ul *ngIf="this.item else naoEncontrado">
+  <ul *ngIf="this.item; else naoEncontrado">
     <li><b>Id:</b> {{itemId}}</li>
     <li><b>Nome:</b> {{item?.nome}}</li>
     <li><b>Categoria:</b> {{item?.categoria}}</li>

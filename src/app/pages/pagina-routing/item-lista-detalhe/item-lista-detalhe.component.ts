@@ -11,7 +11,7 @@ import { ListaService } from './../../../servicos/lista.service';
 export class ItemListaDetalheComponent {
 
 
-  itemId: string = '';
+  itemId: number = 0;
   inscricao: Subscription = new Subscription();
   item: any;
   exibir: boolean = true;
@@ -21,13 +21,18 @@ export class ItemListaDetalheComponent {
   }
 
   ngOnInit(){
-    this.inscricao = this.route.params.subscribe((params: any) => {
-      this.itemId = params['id'];
-      this.item = this.listaService.getItem(Number(this.itemId))
-      this.exibir = !(this.item?.categoria == 'hortifruti' || this.item?.categoria == 'açougue')
-      // if(this.item == null){
-      //   this.router.navigate(['nao-encontrado'])
-      // }
+     this.route.params.subscribe((params: any) => {
+      this.itemId = Number(params['id']);
+      if(!Number.isNaN(this.itemId)){
+        this.listaService.getItem(this.itemId)
+        .subscribe( item => { this.item = item })
+        this.exibir = !(this.item?.categoria == 'hortifruti' || this.item?.categoria == 'açougue')
+      }else{
+        this.router.navigate(['1'], {
+          relativeTo: this.route
+        })
+      }
+
     });
   }
 

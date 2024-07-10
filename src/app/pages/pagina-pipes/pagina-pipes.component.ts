@@ -6,11 +6,21 @@ import { Component } from '@angular/core';
   styleUrl: './pagina-pipes.component.scss'
 })
 export class PaginaPipesComponent {
-  nomeCurso: string = 'Angular';
-  cargaHoraria: number = 0;
-  valorInicial: number = 11;
-  novoValor: number = 0;
+  nomeCurso: string; 
+  cargaHoraria: number; 
+  valorInicial: number; 
+  novoValor: number; 
 
+  constructor() {
+    this.nomeCurso = 'Angular',
+    this.cargaHoraria = 0;
+    this.valorInicial = 11;
+    this.novoValor = 0;
+  
+  }
+  handleClick(){
+    this.novoValor++
+  }
   onMudouValor(evento: any){
     this.novoValor = evento.valor;
   }

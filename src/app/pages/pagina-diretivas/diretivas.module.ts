@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ContadorComponent } from '../../components/contador/contador.component';
 import { ContentComponent } from '../../components/content/content.component';
-import { FundoAmareloDirective } from '../../shared/fundo-amarelo.directive';
 import { DiretivasRoutingModule } from './diretivas-routing.module';
 import { DiretivaClassComponent } from './diretivas/diretiva-class/diretiva-class.component';
 import { DiretivaContentComponent } from './diretivas/diretiva-content/diretiva-content.component';
@@ -28,7 +27,7 @@ import { PaginaDiretivasComponent } from './pagina-diretivas.component';
     PaginaDiretivasComponent,
     ContadorComponent,
     ContentComponent,
-    FundoAmareloDirective
+  
   ],
   exports: [
     PaginaDiretivasComponent,

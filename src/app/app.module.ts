@@ -1,7 +1,12 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { InjectionToken, LOCALE_ID, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BarComponent } from './pages/pagina-graficos/bar/bar.component';
+import { PaginaGraficosComponent } from './pages/pagina-graficos/pagina-graficos.component';
+import { PieComponent } from './pages/pagina-graficos/pie/pie.component';
+import { ScatterComponent } from './pages/pagina-graficos/scatter/scatter.component';
+import { FavoritesComponent } from './pages/pagina-products/favorites/favorites.component';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -13,7 +18,7 @@ import { CursosModule } from './components/cursos/cursos.module';
 import { DisciplinasComponent } from './components/disciplinas/disciplinas.component';
 import { InputPropertyComponent } from './components/input-property/input-property.component';
 
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -32,15 +37,35 @@ import { ItemNaoEncontradoComponent } from './pages/pagina-routing/item-nao-enco
 import { PaginaRoutingComponent } from './pages/pagina-routing/pagina-routing.component';
 import { PaginaServicosComponent } from './pages/pagina-servicos/pagina-servicos.component';
 import { TemplateFormModule } from './pages/template-form/template-form.module';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { CopyrightDirective } from './diretivas/copyright.directive';
+import { NumericDirective } from './diretivas/numeric.directive';
+import { HomeComponent } from './home/home.component';
+import { ProductDetailComponent } from './pages/pagina-products/product-detail/product-detail.component';
+import { ProductListComponent } from './pages/pagina-products/product-list/product-list.component';
+import { UploadModule } from './pages/pagina-upload/upload.module';
 import { CursosService } from './servicos/cursos.service';
 import { ListaService } from './servicos/lista.service';
 import { UsuarioService } from './servicos/usuario.service';
+import { FundoAmareloDirective } from './shared/fundo-amarelo.directive';
 import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localePt);
+export const APP_CONFIG = new InjectionToken<AppConfig>('app.config description');
+export const MY_APP_CONFIG_VARIABLE = "ISSO AÍ"
+export interface AppConfig {
+  texto: string
+}
 
 @NgModule({
   declarations: [
+    FundoAmareloDirective,
     AppComponent,
     InputPropertyComponent,
     CicloComponent,
@@ -58,8 +83,21 @@ registerLocaleData(localePt);
     PaginaPipesComponent,
     AccountComponent,
     DadosComponent,
+    HomeComponent,
+    PaginaGraficosComponent,
+    BarComponent,
+    PieComponent,
+    ScatterComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    FavoritesComponent,
+    CopyrightDirective,
+    NumericDirective
   ],
   imports: [
+    MatMenuModule,
+    MatCardModule,
+    MatButtonModule,
     BrowserModule,
     CursosModule,
     FormsModule,
@@ -68,24 +106,31 @@ registerLocaleData(localePt);
     DataFormModule,
     MatPaginatorModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSelectModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     ModalModule.forRoot(),
-    SharedModule
+    SharedModule, 
+    UploadModule,
+    ReactiveFormsModule,
+    BaseChartDirective,
+    MatSidenavModule
+   
   ],
   exports: [
     // ContadorComponent
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch()),
+    provideHttpClient(),
     ListaService,
     UsuarioService,
     CursosService, 
-    {
-      provide: LOCALE_ID,
-      useValue: 'pt-BR' 
-    }, provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: LOCALE_ID,  useValue: 'pt-BR' }, 
+    { provide: APP_CONFIG, useValue: 'OK' }, 
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]})
 export class AppModule { }
+

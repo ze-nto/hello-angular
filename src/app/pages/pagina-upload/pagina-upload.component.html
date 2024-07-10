@@ -1,0 +1,20 @@
+<div class="upload-container">
+  <div class="upload-box">
+    <div class="upload-input-container">
+      <label for="formFile" class="form-label">Selecionar arquivo</label>
+      <input class="form-control" type="file" id="formFile" id="custom" (change)="onChange($event)" multiple/>
+    </div>
+    <div class="progress-container">
+      <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" [style.width]="porcentagem + '%'">{{porcentagem + '%'}}</div>
+      </div>
+    </div>
+      <div class="lista-arquivos">
+      <ul *ngFor="let arquivo of nomes" class="list-group">
+        <li class="list-group-item">{{ arquivo }}</li>
+      </ul>
+    </div>
+    <button type="button" class="btn btn-primary col-md-3" (click)="onUpload()" *ngIf="arquivosSelecionados.size>0">Upload</button>
+  </div>
+</div>
+

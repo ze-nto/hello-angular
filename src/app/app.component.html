@@ -42,13 +42,37 @@
           <a routerLinkActive="active" routerLink="/dados" class="nav-link " 
               href="#">Dados</a>
         </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/upload" class="nav-link " 
+              href="#">Upload</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/graficos" class="nav-link " 
+              href="#">Gráficos</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/produtos" class="nav-link " 
+              href="#">Produtos</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/rxjs" class="nav-link " 
+              href="#">RxJS</a>
+        </li>
       </div>
+      <div>
+        {{currentUser}}
+      </div>
+      <button (click)="sidenav.toggle()">Sidenav</button>
       <a class="btn btn-outline-danger" 
           (click)="logout()">Sair</a>
     </div>
   </div>
 </nav>
-
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<mat-drawer-container class="example-container">
+  <mat-drawer #sidenav mode="side" (opened)="openSidenav">Drawer content</mat-drawer>
+  <mat-drawer-content>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

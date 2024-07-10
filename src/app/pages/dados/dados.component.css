@@ -1,0 +1,26 @@
+mat-card{
+  padding: 20px;
+}
+
+
+mat-table{
+  width: 100%;
+}
+
+.mat-mdc-header-row{
+  background-color: rgb(106, 73, 255);
+  color: #fff;
+  font-weight: bold;
+}
+
+.mat-mdc-cell:first-child{
+  width: 5%;
+  background-color: rgb(243, 242, 242);
+  text-align: center;
+  color: #4e4e4e;
+  font-weight: bold;
+}
+
+.mat-mdc-cell.normal:not(.mat-mdc-cell:first-child){
+  width: 10%;
+}

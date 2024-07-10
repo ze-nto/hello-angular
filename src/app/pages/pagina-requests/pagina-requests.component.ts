@@ -37,6 +37,7 @@ export class PaginaRequestsComponent implements OnInit {
     this.cursos$ = this.cursosService.list()
     .pipe(
       catchError(error => {
+        console.log(error)
         this.openModal()
         return EMPTY
       })

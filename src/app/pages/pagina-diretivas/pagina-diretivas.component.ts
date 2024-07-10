@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class PaginaDiretivasComponent {
 
-disciplinas: string[] = ['Angular', 'Spring Boot', 'Typescript', 'Design'];
-ativo: boolean = false;
+disciplinas: string[];
+ativo: boolean;
+
+constructor(){
+  this.ativo = false;
+  this.disciplinas = ['Angular', 'Spring Boot', 'Typescript', 'Design'];
+}
 
 mudarAtivo(){
   this.ativo = !this.ativo;

@@ -1,0 +1,70 @@
+<!-- <div class="container">
+
+ <h3>Cadastrar Nova Receita</h3> 
+
+ <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label class="form-label">Nome</label>
+    <input class="form-control" type="text" formControlName="nome">
+  </div>
+  <div class="form-group">
+    <label class="form-label">Categoria</label>
+    <input class="form-control" type="text" formControlName="categoria">
+  </div>
+  <br>
+  <div formGroupName="metadados">
+    <div class="form-group">
+      <label class="form-label">URL Imagem</label>
+      <input class="form-control" type="text" formControlName="imageUrl">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Palavras Chave</label>
+      <button class="btn btn-secondary" style="margin-left:10px;" type="button" (click)="adicionaPalavra()">Adicionar</button>
+    </div>
+    <div formArrayName="palavrasChave" [ngClass]="{palavras: palavras.length > 0}">
+      <div class="form-group"*ngFor="let palavra of palavras; let i=index">
+        
+        <input class="form-control" id="alias-{{ i }}" type="text" [formControlName]="i">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="form-label">Tempo de Preparo</label>
+      <input class="form-control" type="text" formControlName="tempoDePreparo">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Avaliação</label>
+      <input class="form-control" type="text" formControlName="avaliacao">
+    </div>
+  </div>
+<br>
+  <div class="group-button">
+    <button class="btn btn-primary" type="submit" [disabled]="!formulario.valid">Submit</button>
+    <button class="btn btn-accent" (click)="updateRecipe()"> Mudar valor</button>
+  </div>
+
+ </form>
+
+<section class="detalhes">
+
+  <h4>Detalhes da receita</h4>
+
+  <ul>
+    <li>
+      {{ formulario.status}}
+    </li>
+    <li>
+      <span><b>Nome:</b> {{formulario.controls.nome.value}}</span>
+    </li>
+    <li>
+      <span><b>Categoria:</b> {{categoria$ | async}}</span>
+    </li>
+    <li>
+      {{palavras$ | async }}
+    </li>
+    
+
+  </ul>
+
+</section>
+
+</div> -->

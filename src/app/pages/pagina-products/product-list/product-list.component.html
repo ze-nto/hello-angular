@@ -1,0 +1,41 @@
+<h2>Product List</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="createProduct()">
+  <!-- <div class="form-group">
+    <label for="name">Nome</label>
+    <input class="form-control" type="text" formControlName="name" id="name"/>
+    <span *ngIf="name.touched && name.invalid">
+      The name is not valid
+    </span>
+  </div>
+<br>
+  <div class="form-group">  
+    <label class="form-label"for="price">Preço</label>
+    <input class="form-control" type="text" formControlName="price" (blur)="showPriceRangeHint = false" id="price">
+    <span *ngIf="price.touched && price.hasError('required')">
+      The price is not valid
+    </span>
+    <span *ngIf="price.touched && price.hasError('outOfRange')">
+      The price value out of 1-10000 range
+    </span>
+    <span *ngIf="showPriceRangeHint">The price must be between 1 and 10000</span>
+  </div> -->
+  <!-- <form formGroupName="info">
+    <div>
+      <label for="category">Category</label>
+      <input id="category" formControlName="category" />
+    </div>
+    <div>
+      <label for="descr">Description</label>
+      <input id="descr" formControlName="description" />
+    </div>
+    <div>
+      <label for="photo">Photo URL</label>
+      <input id="photo" formControlName="image" />
+    </div>
+  </form> -->
+  <br>
+  <button class="btn btn-primary" type="submit" [disabled]="!productForm.touched || !productForm.valid">Cadastrar</button>
+</form>
+
+<app-form-debug [form]="productForm" [submitted]="submitted"></app-form-debug>

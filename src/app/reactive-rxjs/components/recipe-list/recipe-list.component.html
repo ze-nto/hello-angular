@@ -1,0 +1,27 @@
+
+
+<h3>Lista de Receitas</h3>
+
+<app-recipe-filter></app-recipe-filter>
+
+<section class="list-container">
+  <ng-container *ngFor="let recipe of recipes$ |  async ">
+    <mat-card class="mat-elevation-z5 card">
+  
+        <div class="recipe-image-container" [ngStyle]="{'background': 'url(assets/img/{{recipe.imageUrl}}) no-repeat 0 0'}">
+          <img class="image" src="assets/img/{{recipe.imageUrl}}">
+        </div> 
+        <mat-card-content>
+          <mat-card-title class="title">{{recipe.title}}</mat-card-title>
+            <div class="description">
+              {{recipe.ingredients}}
+            </div>
+        </mat-card-content>
+            
+    </mat-card>
+  </ng-container>
+</section>
+<ng-template #aviso>
+  Nada encontrado
+</ng-template>
+<div class="footer"></div>

@@ -9,7 +9,7 @@ export class FundoAmareloDirective {
     // this._renderer.setStyle(this._elementRef.nativeElement, 'background-color', 'yellow');
   this.backgroundColor = 'yellow';
   this.cursor = 'default';
-  }
+  } 
   
    @HostListener('mouseleave') onMouseLeave(){
     // this._renderer.setStyle(this._elementRef.nativeElement, 'background-color', 'white');
